@@ -1,0 +1,36 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "nothing to say",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel watch:sass devserver",
+    
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.comp.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basakest/Natours.git"
+  },
+  "author": "basakest",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/basakest/Natours/issues"
+  },
+  "homepage": "https://github.com/basakest/Natours#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "concat": "^1.0.3",
+    "live-server": "^1.2.1",
+    "node-sass": "^4.13.1",
+    "postcss-cli": "^7.1.0"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.5" 
+  }
+}
