@@ -101,3 +101,74 @@
         border-radius: 50%;
     }
 }
+
+/**********************************
+    SIDEB NAVIGATION
+**********************************/
+.side-nav {
+    margin-top: 3.5rem;
+    font-size: 1.4rem;
+    list-style: none;
+
+    &__item::before {
+        content: "";
+        display: block;
+        width: 3px;
+        background-color: var(--color-primary);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transform: scaleY(0);
+        transition: transform .2s,
+                    width .4s cubic-bezier(0.37, 0, 0.63, 1) .2s,
+                    background-color .1s;
+    }
+
+    &__item:hover::before,
+    &__item--selected::before {
+        transform: scaleY(1);
+        width: 100%;
+    }
+
+    &__item:active::before {
+        background-color: var(--color-primary-light);
+    }
+
+    &__item {
+         position: relative;
+         
+         &:not(:last-child) {
+             margin-bottom: .5rem;
+         }  
+    }
+
+    &__link:link,
+    &__link:visited {
+        z-index: 5;
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 1.5rem 3rem;
+        display: block;
+        position: relative;
+    }
+
+    &__icon {
+        height: 1.75rem;
+        width: 1.75rem;
+        fill: currentColor;
+        margin-right: 2rem;
+    }
+}
+
+/**********************************
+    LEGAL
+**********************************/
+.legal {
+    size: 1.2rem;
+    text-align: center;
+    padding: 2.5rem;
+    color: var(--color-grey-light-4);
+}
+
